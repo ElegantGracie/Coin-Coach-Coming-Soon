@@ -1,36 +1,44 @@
-const { response } = require('express')
+// Dependencies
 const express = require('express')
+const cors = require('cors')
 const nodemailer = require('nodemailer')
+require('dotenv').config()
 
-const app  = express
-const port = 5000
+// Instance of express
+const app  = express()
 
+// Port
+const port = process.env.PORT
+
+app.use(cors({origin: '*'}))
+
+// Function to send mail
 function sendEmail() {
     return new Promise((resolve, reject) =>  {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: '',
-                pass: ''
+                user: process.env.USER,
+                pass: process.env.PASS
             }
         })
         const mail_configs = {
-            from: '',
-            to: '',
-            subject: '',
-            text: ''
+            from: process.env.USER,
+            to: email,
+            subject: 'Testing',
+            text: 'Welcome'
         }
         transporter.sendMail(mail_configs, function(error, info) {
             if(error) {
                 console.log(error);
-                return reject({message: 'Left'});
+                return reject({message: 'Not sent'});
             }
-            return resolve({message: 'Stay'})
+            return resolve({message: 'Sent'})
         })
     })
 }
 
-app.length('/', (req, res) => {
+app.get('/send', (req, res) => {
     sendEmail()
     .then((res) => res.send(response, message))
     .catch((error) => res.status(500).send(error.message))
