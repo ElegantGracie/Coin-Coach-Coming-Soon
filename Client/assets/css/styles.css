@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: 'Open sans';
+}
+body {
+    background-color: #231867;
+    overflow: hidden;
+}
+.top {
+    z-index: 2;
+}
+.white-text{
+    color: white;
+}
+.orange-text {
+    color: #CE5A29;
+}
+.gray-text{
+    color: lightgray;
+}
+a.gray-text:hover {
+    color: gray;
+}
+.orange-btn {
+    background-color: #CE5A29;
+    color: white;
+}
+.silver-lining {
+    /* border: 1px solid silver;
+    border-radius: 1.5rem; */
+    width: 13rem;
+    height: 20rem;
+}
+.black-casing {
+    border: 10px solid black;
+    border-radius: 1.5rem;
+    width: 100%;
+    height: 100%;
+}
+.phone-contents {
+    position: relative;
+}
+.image-text {
+    position: absolute;
+    top: 0;
+    margin-top: 5rem;
+    right: -2.3rem;
+    
+}
+.light-purple {
+    top: -15rem;
+    left: -25rem;
+    width: 100%;
+    /* max-width: 70%; */
+    height: 45rem;
+    background: rgba(93, 82, 161, 0.38);
+    transform: rotate(140deg);
+}
+
+@media (max-width: 600px) {
+    body {
+        overflow: unset;
+    }
+}
