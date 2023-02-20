@@ -10,6 +10,9 @@ body {
 .top {
     z-index: 2;
 }
+.navbar-brand:hover {
+    color: unset;
+}
 .white-text{
     color: white;
 }
