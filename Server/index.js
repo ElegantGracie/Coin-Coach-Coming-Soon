@@ -3,25 +3,23 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
-const axios = require('axios')
-const cheerio = require('cheerio')
+// const axios = require('axios')
+// const cheerio = require('cheerio')
 require('dotenv').config()
 
 // Instance of express
 const app = express()
 
 // Port
-const port = process.env.URL || 3000
+const port = 3000
+// const url = process.env.URL || 3000
 
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(cors({origin: '*'}))
 
-axios.get(port)
-  .then((response) => {
-    const html = response.data;
-    const $ = cheerio.load(html);
-    const email = $('#email').val();
+app.post('/send', (req, res)=> {
+    const { email } = req.body
 
     // Function to send mail
     function sendEmail() {
@@ -48,17 +46,12 @@ axios.get(port)
             })
         })
     }
+    
+    sendEmail()
+    .then((response) => res.send(response.message))
+    .catch((error) => res.status(500).send(error.message))
+})
 
-    app.get('/send', (req, res) => {
-        sendEmail()
-        .then((response) => res.send(response.message))
-        .catch((error) => res.status(500).send(error.message))
-    })
-
-    app.listen(url, () => {
-        console.log(`App is listening at ${port}`)
-    })
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+app.listen(port, () => {
+    console.log(`App is listening at ${port}`)
+})
