@@ -6,12 +6,12 @@ function EmailValidation(email) {
     if(email.match(mail_format)) {
 
         axios.post('', {
-            enteredEmail: email
+            testerEmail: testerEmail
         }).then((response)=> {
             console.log(response.data)
             // Sweet alert popup if successful 
             Swal.fire(
-                'Mail sent!',
+                'A mail will be sent to you',
                 'Check your inbox, spam or promotions.',
                 'success'
             );
@@ -20,7 +20,7 @@ function EmailValidation(email) {
             // Sweet alert popup if not successful
             Swal.fire(
                 'Mail invalid!',
-                'Fill the correct mail'
+                'Fill a valid mail'
             )
         })        
     } 
