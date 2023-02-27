@@ -6,7 +6,7 @@ function EmailValidation(email) {
     if(email.match(mail_format)) {
 
         axios.post('https://coin-coach-mail-sender.onrender.com', {
-            testerEmail: testerEmail
+            testerEmail: email
         }).then((response)=> {
             console.log(response.data)
             // Sweet alert popup if successful 
