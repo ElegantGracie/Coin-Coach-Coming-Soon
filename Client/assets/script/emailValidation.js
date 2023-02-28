@@ -4,15 +4,15 @@ function EmailValidation(email) {
     let mail_format = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/;
 
     // Check for empty email field
-    if(!email || email.trim().length === 0) {
+    // if(!email || email.trim().length === 0) {
         // Sweet alert popup if email field is empty
-        Swal.fire(
-            'Email field is empty!',
-            'Please fill in your email address.',
-            'warning'
-        );
-        return;
-    } else {
+        // Swal.fire(
+            // 'Email field is empty!',
+            // 'Please fill in your email address.',
+            // 'warning'
+        // );
+        // return;
+    // } else {
         if(mail_format.test(email)) {
 
             axios.post('https://coin-coach-mail-sender.onrender.com', {
@@ -42,7 +42,7 @@ function EmailValidation(email) {
                 'error'
             )
         }
-    }
+    // }
 
 }
 
