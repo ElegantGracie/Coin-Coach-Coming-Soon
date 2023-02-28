@@ -53,6 +53,6 @@ const form = document.getElementById('message-form');
 // EventListener to send email address
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = document.querySelector('email')
+    const email = document.querySelector('email').value
     EmailValidation(email);
 });
