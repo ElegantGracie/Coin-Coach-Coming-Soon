@@ -56,7 +56,3 @@ form.addEventListener('submit', (e) => {
     const email = document.querySelector('email')
     EmailValidation(email);
 });
-    const email = document.querySelector('email')
-    EmailValidation(email);
-});
-
